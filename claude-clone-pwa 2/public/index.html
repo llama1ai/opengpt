@@ -71,8 +71,8 @@
         }
       }
       
-      /* PWA Standalone Mode - iOS */
-      @media all and (display-mode: standalone) {
+      /* PWA Standalone/Fullscreen Mode - iOS */
+      @media all and (display-mode: standalone), all and (display-mode: fullscreen) {
         body {
           padding-top: env(safe-area-inset-top);
           padding-bottom: env(safe-area-inset-bottom);
@@ -131,14 +131,15 @@
     <script>
       // iOS Safari Address Bar Management
       let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      let isStandalone = window.navigator.standalone === true || 
+      let isStandalone = window.navigator.standalone === true ||
                         window.matchMedia('(display-mode: standalone)').matches ||
+                        window.matchMedia('(display-mode: fullscreen)').matches ||
                         document.referrer.includes('android-app://');
       
       console.log('🔍 Device detection:', { isIOS, isStandalone });
       
       if (isStandalone) {
-        console.log('✅ Running as PWA in standalone mode');
+        console.log('✅ Running as PWA');
         document.body.classList.add('pwa-standalone');
       } else {
         console.log('⚠️ Running in browser mode');

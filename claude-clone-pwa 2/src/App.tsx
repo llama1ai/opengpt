@@ -23,6 +23,7 @@ function AppContent() {
     const standalone =
       (window.navigator as any).standalone === true ||
       window.matchMedia("(display-mode: standalone)").matches ||
+      window.matchMedia("(display-mode: fullscreen)").matches ||
       document.referrer.includes("android-app://")
 
     setIsStandalone(standalone)
