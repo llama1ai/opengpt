@@ -99,7 +99,7 @@
   }
 
   /* Prevent text selection in PWA mode */
-  @media all and (display-mode: standalone) {
+  @media all and (display-mode: standalone), all and (display-mode: fullscreen) {
     body {
       -webkit-user-select: none;
       -moz-user-select: none;

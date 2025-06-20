@@ -156,7 +156,7 @@ self.addEventListener("notificationclick", (event) => {
           }
         }
 
-        // Open new window in standalone mode
+        // Open new window in PWA mode
         if (clients.openWindow) {
           return clients.openWindow("/")
         }
